@@ -11,7 +11,11 @@ Start the system <br />
 Sanity check <br />
 ```curl http://localhost:8080/test ```
 
+See the states <br />
+```http://localhost:8080/actuator/metrics/resilience4j.circuitbreaker.state```
 
+Or the call counts <br />
+```http://localhost:8080/actuator/metrics/resilience4j.circuitbreaker.calls```
 
 Bash tests <br />
 ```
