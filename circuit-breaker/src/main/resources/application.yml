@@ -1,0 +1,22 @@
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      myServiceCB:
+        failureRateThreshold: 50
+        slowCallRateThreshold: 6 
+        slowCallDurationThreshold: 20ms
+        permittedNumberOfCallsInHalfOpenState: 2
+        slidingWindowType: COUNT_BASED
+        slidingWindowSize: 6
+        minimumNumberOfCalls: 5
+        waitDurationInOpenState: 5s
+        recordExceptions:
+          - java.io.IOException
+          - java.util.concurrent.TimeoutException
