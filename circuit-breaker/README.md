@@ -17,15 +17,8 @@ See the states <br />
 Or the call counts <br />
 ```http://localhost:8080/actuator/metrics/resilience4j.circuitbreaker.calls```
 
-Bash tests <br />
-```
-for i in {1..50}; do
-  echo "Request $i"
-  curl -s http://localhost:8080/test
-  echo
-  sleep 0.1
-done
-```
+
+Bash tests that runs the actuator to get the states highlighted in DEBUG mode<br />
 
 ```
 for i in {1..50}; do
@@ -41,3 +34,15 @@ for i in {1..50}; do
   sleep 0.05
 done
 ```
+
+Basic calls <br />
+
+```
+for i in {1..50}; do
+  echo "Request $i"
+  curl -s http://localhost:8080/test
+  echo
+  sleep 0.1
+done
+```
+

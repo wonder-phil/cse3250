@@ -5,18 +5,28 @@ management:
       exposure:
         include: health,metrics
 
+logging.level.io.github.resilience4j.circuitbreaker: DEBUG
+logging.level.io.github.resilience4j.core: DEBUG
+
+logging.level.root: DEBUG
+
+logging.level.org.apache.coyote: INFO
+logging.level.org.apache.tomcat: INFO
+
+
+
 resilience4j:
   circuitbreaker:
     instances:
       myServiceCB:
-        failureRateThreshold: 50
-        slowCallRateThreshold: 6 
-        slowCallDurationThreshold: 20ms
-        permittedNumberOfCallsInHalfOpenState: 2
-        slidingWindowType: COUNT_BASED
+        failureRateThreshold: 100
+        slowCallRateThreshold: 50
+        slowCallDurationThreshold: 300ms
         slidingWindowSize: 6
         minimumNumberOfCalls: 5
+        permittedNumberOfCallsInHalfOpenState: 2
         waitDurationInOpenState: 5s
         recordExceptions:
           - java.io.IOException
+          - java.io.EOFException
           - java.util.concurrent.TimeoutException
