@@ -46,3 +46,12 @@ for i in {1..50}; do
 done
 ```
 
+You can also make requests using a Poisson distribution using the poission_caller.py program from ChatGPT as
+
+```
+python3 poisson_curl.py http://localhost:8080/test --rate 2 --count 50
+```
+
+Can you compare with other distributions?  You may use ChatGPT or other AI.
+Even if you stick with one distribution, how can you adjust the system to serve the most clients
+to minimize the OPEN or HALF_OPEN states?

@@ -45,7 +45,7 @@ def poisson_curl(url, rate, total_requests=None, duration=None, verbose=True):
                 text=True
             )
             if verbose:
-                print(f"[{count}] waited {wait:.4f}s → response len={len(result.stdout)}")
+                print(f"[{count}] waited {wait:.4f}s → response len={len(result.stdout)}", result.stdout)
         except Exception as e:
             print(f"Error: {e}")
 
