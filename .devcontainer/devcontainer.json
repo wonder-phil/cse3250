@@ -1,4 +1,14 @@
 {
   "name": "Java 21",
   "image": "mcr.microsoft.com/devcontainers/java:1-21-bullseye"
+},
+{
+  "name": "Python Codespace",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python", "ms-toolsai.jupyter"]
+    }
+  }
 }
+
