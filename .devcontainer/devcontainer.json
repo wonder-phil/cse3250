@@ -1,4 +1,14 @@
 {
-  "name": "Java 21",
-  "image": "mcr.microsoft.com/devcontainers/java:1-21-bullseye"
+  "name": "Java 21 + Python",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "ms-python.python"
+      ]
+    }
+  }
 }
