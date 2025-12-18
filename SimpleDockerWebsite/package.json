@@ -1,0 +1,25 @@
+{
+  "name": "2020_09_17a",
+  "version": "1.0.0",
+  "description": "This is a test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wonder-phil/SimpleDockerWebsite"
+  },
+  "keywords": [
+    "Start"
+  ],
+  "author": "PGB",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wonder-phil/SimpleDockerWebsite/issues"
+  },
+  "homepage": "https://github.com/wonder-phil/SimpleDockerWebsite#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

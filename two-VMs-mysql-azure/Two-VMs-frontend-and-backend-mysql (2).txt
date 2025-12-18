@@ -1,0 +1,98 @@
+Midterm PROJECT
+
+    Phillip G. Bradford
+
+
+Create two VMs in the same VPN with the same subnet
+
+One is FRONTEND the other is BACKEND.
+The FRONTEND VM has the public IP address.
+
+Attached a public IP address to the FRONTEND.
+Also, open port 22 for SSH on the FRONTEND.
+
+
+FRONTEND> sudo apt update
+
+BACKEND> sudo apt update
+BACKEND> sudo apt install mysql-server -y
+BACKEND> sudo systemctl enable mysql
+BACKEND> sudo systemctl start mysql
+BACKEND> sudo systemctl status mysql
+ 
+BACKEND> sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+
+update from 127.0.0.1 to 0.0.0.0 in both fields:
+
+  Change to: bind-address 			= 0.0.0.0
+  Change to: mysqlx-bind-address     = 0.0.0.0
+
+
+  
+BACKEND> sudo systemctl restart mysql
+BACKEND> sudo mysql -u root -p
+
+Enter password: root
+
+BACKEND> mySQL> CREATE DATABASE sampledb;
+BACKEND> mySQL> CREATE USER 'appuser' IDENTIFIED BY 'StrongPass123!';
+BACKEND> mySQL> GRANT ALL PRIVILEGES ON sampledb.* TO 'appuser';
+BACKEND> mySQL> FLUSH PRIVILEGES;
+
+BACKEND> mySQL> USE sampledb;
+
+BACKEND> mySQL> CREATE TABLE people (name varchar(255), address varchar(255), id INT PRIMARY KEY AUTO_INCREMENT);
+
+BACKEND> mySQL> INSERT INTO people (name, address) VALUES ('Albert', 'Princeton');
+BACKEND> mySQL> INSERT INTO people (name, address) VALUES ('Alfred', 'Berkeley');
+BACKEND> mySQL> INSERT INTO people (name, address) VALUES ('David Lee', 'UConn');
+
+EXIT;
+
+
+
+In the Azure Backend Portal open port 3306 for MySQL.
+
+VM -> Networking -> Network Security Group -> Inbound Rules and Outbound Rules -> Add
+
+Source: VirtualNetwork
+Source port: *
+Destination: This VM
+Port: 3306
+Protocol: TCP
+Action: Allow
+Priority: 100–300
+
+FRONTEND> sudo apt install mysql-client -y
+FRONTEND> mysql -h   172.16.0.5 -u appuser -p
+StrongPass123!
+
+FRONTEND> sudo apt install npm -y
+FRONTEND> mkdir test
+FRONTEND> cd test
+FRONTEND> npm install mysql2
+
+
+Copy, update and run the following code on FRONTEND from the test directory.
+Ensure the IP address is the correct private IP address for the BACKEND.
+
+const mysql = require('mysql2/promise');
+
+(async () => {
+  const conn = await mysql.createConnection({
+    host: '172.16.0.5',
+    user: 'appuser',
+    password: 'StrongPass123!',
+    database: 'sampledb'
+  });
+
+  const [rows] = await conn.query("SELECT * FROM people");
+  console.log(rows);
+})();
+
+
+
+
+
+
+
