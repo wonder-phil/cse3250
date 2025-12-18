@@ -9,7 +9,7 @@ resilience4j:
   circuitbreaker:
     instances:
       myServiceCB:
-        failureRateThreshold: 50
+        failureRateThreshold: 100
         slowCallRateThreshold: 6 
         slowCallDurationThreshold: 20ms
         permittedNumberOfCallsInHalfOpenState: 2

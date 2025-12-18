@@ -9,9 +9,13 @@ public class ExternalApiService {
     @CircuitBreaker(name = "myServiceCB", fallbackMethod = "fallback")
     public String callApi() {
         // Simulate failure or slow external call
-        if (Math.random() > 0.5) {
-            throw new RuntimeException("API failed");
+        try {
+            Thread.sleep(500);
         }
+        catch (Exception e) {
+            System.err.println("Sleep interrupted");
+        }
+        
         return "Success!";
     }
 
