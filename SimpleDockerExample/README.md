@@ -6,11 +6,16 @@
 > 
 > docker ps
 >
-> docker run -p 5000:5000 server1
+> docker run -p 3001:5000 server1
 > 
 > docker ps
 > IMAGE=xyz
 >
 > docker exec -it xyz /bin/sh
 >
+> curl -d "text=Hello!&param2=value2" -X POST http://localhost:3001/echo
+>
+> docker stop xyz
+>
+> docker image prune -a
 > >
