@@ -18,4 +18,9 @@
 > docker stop xyz
 >
 > docker image prune -a
-> >
+>
+> docker images
+>
+> docker rmi -f $(docker images -aq)
+>
+> 
