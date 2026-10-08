@@ -4,7 +4,7 @@ LABEL pgb_node=PGB-website
 # Create app directory
 WORKDIR /usr/src/app
 
-RUN git clone -q https://github.com/wonder-phil/SimpleDockerWebsite
+RUN git clone -q https://github.com/wonder-phil/cse3250/SimpleDockerWebsite
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
