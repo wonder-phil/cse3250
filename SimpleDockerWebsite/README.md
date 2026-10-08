@@ -15,7 +15,7 @@ Host> node index.js   <br/>  <br/>
 Verify it works on the host  <br/>
 ---
 
-Host> docker build -t server1 -f Docker.file .  <br/>
+Host> docker build -t server1 -f Dockerfile .  <br/>
 Host> docker image ls  <br/>
 Host> docker ps  <br/>
 Host> <br/>
