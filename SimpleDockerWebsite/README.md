@@ -1,9 +1,9 @@
 # SimpleDockerWebsite <br/>
 # <br/>
 
+<br/>
 
-
-Ubuntu> git clone https://github.com/wonder-phil/SimpleDockerWebsite <br/> <br/>
+Host> git clone https://github.com/wonder-phil/SimpleDockerWebsite <br/> <br/>
 
 Test before you launch the docker instance: <br/> <br/>
 
@@ -11,7 +11,8 @@ Host> cd SimpleDockerWebsite <br/>
 Host> npm install <br/>
 Host> node index.js   <br/>  <br/>
 Host> node index.js   <br/>  <br/>
-Verify it works on Ubuntu instance  <br/>
+---
+Verify it works on the host  <br/>
 ---
 
 Host> docker build -t server1 -f Docker.file .  <br/>
