@@ -1,0 +1,31 @@
+docker volume create vol0
+
+# docker volume ls
+## DRIVER    VOLUME NAME
+## local     vol0
+
+docker network create pgb
+
+# docker network ls
+## NETWORK ID     NAME      DRIVER    SCOPE
+## 8c8336839eaa   bridge    bridge    local
+## 8a44a0c4a0ff   host      host      local
+## 8c5196bc5d2d   none      null      local
+## 57cf028f4332   pgb       bridge    local
+
+cd ~/lab04/front
+docker buildx build -t back .
+
+docker images
+IMAGE_back
+
+docker run -id -p 5000:5000 --network=pgb --mount source=vol0,target=/external_vol --name=back IMAGE_back 
+
+cd ~/lab04/front
+docker buildx build -t front .
+
+docker images
+IMAGE_front
+
+
+docker run -id -p 5173:5173 --network=pgb --name=front IMAGE_front
