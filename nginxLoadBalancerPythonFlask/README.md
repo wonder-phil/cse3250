@@ -12,12 +12,13 @@ the backend Docker containers to do the work. Nginx distributes the load in a ro
 
 To get this working:
 
-0. sudo apt install docker-compose
-1. sudo apt install python3-setuptools
-2. docker-compose up
+0. sudo apt update
+1. sudo apt install docker-compose-v2
+2. docker compose up
 3. python3 load_driver.py
 4. curl -v -X GET "http://localhost:8080/"
 5. curl -H "Content-Type: application/json" -d "{\\"heads\\":6 }" -X POST "http://localhost:8080/compute"
+6. docker compose down
 
 # NOTE clear docker containers from the cache
-## docker-compose down --rmi all
+## 7.  docker compose down --rmi all
