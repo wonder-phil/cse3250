@@ -1,4 +1,4 @@
-FROM node:12
+FROM node:24
 
 LABEL pgb_node phillip.bradford@uconn.edu
 
