@@ -20,5 +20,10 @@ To get this working:
 5. curl -H "Content-Type: application/json" -d "{\\"heads\\":6 }" -X POST "http://localhost:8080/compute"
 6. docker compose down
 
-# NOTE clear docker containers from the cache
-## 7.  docker compose down --rmi all
+> NOTE clear docker containers from the cache
+>> 7.  docker compose down --rmi all <br />
+> or remove all images  <br />
+>> Host> docker rmi $(docker images -aq) <br />
+> or remove all images, networks, etc. <br />
+>> Host> docker system prune <br />
+
