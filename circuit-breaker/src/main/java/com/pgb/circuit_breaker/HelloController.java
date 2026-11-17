@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 
-    private final ExternalApiService service;
+    private final ExternalApiService2 service;
 
-    public HelloController(ExternalApiService service) {
+    public HelloController(ExternalApiService2 service) {
         this.service = service;
     }
 
