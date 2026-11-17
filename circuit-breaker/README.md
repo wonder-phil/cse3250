@@ -4,6 +4,8 @@
 
 This is a Spring-boot implementation
 
+Use Java 21 on Ubuntu (v24.+) for this example.
+
 Go to the directory containing the **pom.xml** file  <br />
 Start the system <br />
 ``` ./mvnw spring-boot:run ```
